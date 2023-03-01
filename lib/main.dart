@@ -48,32 +48,11 @@ class _MyAppState extends State<MyApp> {
       home: mainWidget(),
     );
   }
-//check
-  checkIfNull() {
-    if (prefs.getString('name') == null || prefs.getString('name') == '') {
-      return true;
-    } else {
-      return false;
-    }
-  }
 
-  Future<bool> assignFile() async {
-    prefs = await _prefs;
-    await Future.delayed(const Duration(seconds: 1,milliseconds: 50));
-    return true;
-  }
 
-  Widget mainWidget() {
-    return FutureBuilder(
-      future: assignFile(),
-      builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-        if (snapshot.hasData) {
-          FlutterNativeSplash.remove();
-          return checkIfNull()
-              ? WelcomeScreen(
-                  prefs: prefs,
-                )
-              : MultiBlocProvider(
+  /*Widget mainWidget() {
+
+             return MultiBlocProvider(
                   providers: [
                     BlocProvider<CoursesCubit>(
                         create: (_) => getIt<CoursesCubit>()),
@@ -84,10 +63,50 @@ class _MyAppState extends State<MyApp> {
                     prefs: prefs,
                   ),
                 );
+
+  }*/
+
+  Widget mainWidget() {
+    return FutureBuilder(
+      future: assignFile(),
+      builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+        if (snapshot.hasData) {
+          FlutterNativeSplash.remove();
+          return checkIfNull()
+              ? WelcomeScreen(
+            prefs: prefs,
+          )
+              : MultiBlocProvider(
+            providers: [
+              BlocProvider<CoursesCubit>(
+                  create: (_) => getIt<CoursesCubit>()),
+              BlocProvider<StudentsCubit>(
+                  create: (_) => getIt<StudentsCubit>()),
+            ],
+            child: MainPage(
+              prefs: prefs,
+            ),
+          );
         } else {
           return const SizedBox();
         }
       },
     );
   }
+
+  //check
+  checkIfNull() {
+    if (prefs.getString('name') == null || prefs.getString('name') == '') {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  Future<bool> assignFile() async {
+    prefs = await _prefs;
+    await Future.delayed(const Duration(seconds: 1, milliseconds: 50));
+    return true;
+  }
+
 }

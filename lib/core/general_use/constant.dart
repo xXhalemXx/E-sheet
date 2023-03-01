@@ -45,7 +45,6 @@ class AllTexts{
   static const String selectCourseToExport='Select course to export';
   static const String export='Export';
   static const String emptyToExport='this course is empty';
-  static const String created='file generated successfully';
   static const String noStoragePermission='please grant storage permission';
   static const String ok='Ok';
   static const String error='Error';
