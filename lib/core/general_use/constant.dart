@@ -33,7 +33,7 @@ class AllTexts{
   static const String noStudentsToShow="No students to show";
   static const String rolledStudents="Students rolled in this course";
   static const String name="name";
-  static const String attendanceTimes='Attendance times';
+  static const String attendanceTimes='Attendance ';
   static const String closeLocalNetwork='Close local network first';
   static const String saveDataFirst='Save data first';
   static const String onlyOneStudent='1 attended student';
@@ -68,9 +68,12 @@ class AllColors{
   static const Color warningColor=Color(0xffFF463C);
   static const Color noCoursesHome=Color(0xff7CB7FF);
   static const Color allCourses=   Color(0xff7FFFFF);
-  static const Color firstColorExport=   Color(0xff31e74a);
-  static const Color secColorExport=   Color(0xff88f599);
+  //old value for first color Color(0xff31e74a)
+  static const Color firstColorExport=   Color(0xff0c7920);
+  static const Color secColorExport=   Color(0xff9d9d9d);
   static const Color lastColorExport=   Color(0xffffffff);
   static const Color darkColorExport=   Color(0xff0c7920);
+  static const Color noPermissionColor =Color(0xffbd302a);
+
 
 }

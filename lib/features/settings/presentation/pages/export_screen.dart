@@ -44,6 +44,7 @@ class ExportScreen extends StatelessWidget {
         colors: [
           AllColors.firstColorExport,
           AllColors.secColorExport,
+          AllColors.secColorExport,
           AllColors.lastColorExport,
         ],
         begin: Alignment.bottomCenter,

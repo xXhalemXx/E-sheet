@@ -44,7 +44,7 @@ class _StudentListTailState extends State<StudentListTail> {
           title: Padding(
             padding: const EdgeInsets.only(top: 4),
             child: AutoSizeText(
-              "${AllTexts.name}: ${widget.studentName}",
+              widget.studentName,
               maxLines: 1,
             ),
           ),
@@ -63,7 +63,7 @@ class _StudentListTailState extends State<StudentListTail> {
               deleteStudentDialog(context, widget.studentName,
                   widget.courseName, widget.studentNationalId);
             },
-            icon: const Icon(Icons.delete),
+            icon: const Icon(Icons.delete,),
             splashColor: Colors.red,
             splashRadius: 25,
           ),
