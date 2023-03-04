@@ -15,8 +15,8 @@ class CourseListTail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //23 old value for height
-    double hight=MediaQuery.of(context).size.height*0.17;
-    double width=MediaQuery.of(context).size.width;
+    double hight=MediaQuery.of(context).size.height*0.20;
+    double width=MediaQuery.of(context).size.width*100;
     return Padding(
       padding: const EdgeInsets.only(left: 8.0,right: 8.0,bottom: 15.0),
       child: InkWell(

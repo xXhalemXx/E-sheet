@@ -4,25 +4,23 @@ import 'package:e_sheet/core/injection/injection_modeling.dart';
 import 'package:e_sheet/features/settings/presentation/pages/export_screen.dart';
 import 'package:e_sheet/features/students/presentation/manager/student_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:path/path.dart';
 import 'package:syncfusion_flutter_xlsio/xlsio.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'dart:io';
-import 'package:excel/excel.dart';
 
 exportButtonPressed(BuildContext context) async {
   String? courseName = ExportScreen.dropDownValue;
   if (courseName == null || courseName == '') {
     generalToast(context, AllTexts.selectFirst, AllColors.failedToastColor);
   } else {
-    fillDataInColumns(courseName, context);
+      fillDataInColumns(courseName, context);
   }
 }
 
 fillDataInColumns(String courseName, BuildContext context,[bool mounted = true]) async {
-  List<Map<String,dynamic>> students= await getIt<StudentsCubit>().getAllStudents(courseName);
-
+  List<Map<String, dynamic>> students = await getIt<StudentsCubit>()
+      .getAllStudents(courseName);
   if (students.isEmpty) {
     if (!mounted) return;
     generalToast(
@@ -49,11 +47,15 @@ fillDataInColumns(String courseName, BuildContext context,[bool mounted = true])
       //save file
       final List<int> bytes = workbook.saveAsStream();
       String pathToSore = await setLocationToStore();
-      File('$pathToSore/$courseName.xlsx').writeAsBytes(bytes);
+
+        File('$pathToSore/$courseName.xlsx').writeAsBytes(bytes);
+
       workbook.dispose();
       if (!mounted) return;
       generalToast(
-          context, 'file generated successfully in\n$pathToSore/$courseName.xlsx', AllColors.successToastColor,5);
+          context,
+          'file generated successfully in\nfiles/Download/Attendance Sheets/$courseName.xlsx',
+          AllColors.successToastColor, 4);
     }
     else{
       if (!mounted) return;
@@ -64,41 +66,6 @@ fillDataInColumns(String courseName, BuildContext context,[bool mounted = true])
   }
 
 }
-createAndSaveData(String courseName, BuildContext context,[bool mounted = true])async{
-  List<Map<String,dynamic>> students= await getIt<StudentsCubit>().getAllStudents(courseName);
-
-  if (students.isEmpty) {
-    if (!mounted) return;
-    generalToast(
-        context, AllTexts.emptyToExport, AllColors.failedToastColor);
-  } else {
-    //permission
-    if (await checkStoragePermission()) {
-      var excel = Excel.createExcel();
-      Sheet sheetObject = excel['SheetName'];
-      var cell = sheetObject.cell(CellIndex.indexByString("A1"));
-      cell.value = 8;
-
-      var fileBytes = excel.save();
-      var directory = await setLocationToStore();
-
-      File(join("$directory/output_file_name.xlsx"))
-        ..createSync(recursive: true)
-        ..writeAsBytesSync(fileBytes!);
-
-      if (!mounted) return;
-
-    }
-    else{
-      if (!mounted) return;
-      generalToast(
-          context, AllTexts.noStoragePermission, AllColors.failedToastColor);
-      await Permission.storage.request();
-    }
-  }
-
-}
-
 
 Future<String> setLocationToStore() async {
   Directory? tempDir = await getExternalStorageDirectory();
@@ -110,13 +77,18 @@ Future<String> setLocationToStore() async {
     }
     newPath += '$folder/';
   }
-  Directory('${newPath}Attendance Sheets').create();
-  return '${newPath}Attendance Sheets';
+  Directory('${newPath}Download').create();
+  Directory('${newPath}Download/Attendance Sheets').create();
+  return '${newPath}Download/Attendance Sheets';
 }
+
+
+
 
 //handle permissions
 Future<bool> checkStoragePermission() async {
   var status = await Permission.storage.status;
+
   if (status.isGranted) {
     return true;
   } else if (status.isDenied) {

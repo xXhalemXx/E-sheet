@@ -10,6 +10,7 @@ class ConnectionFunctions {
   final Strategy strategy = Strategy.P2P_POINT_TO_POINT;
   List<Map<String,dynamic>> attendedStudents = [];
   List<Map<String, dynamic>> allStudents = [];
+  List<int> attendedIMEI=[];
   Map<String, String> connectedStudents = {};
   late String course;
 
@@ -34,6 +35,7 @@ class ConnectionFunctions {
   }
 
   void onConnectionInit(String id, ConnectionInfo info) async {
+
     if (attended(info)==false && rolledIn(info, id) ) {
       getIt<ConnectionCubit>().reloadConnectedStudents(connectedStudents);
       Nearby().acceptConnection(
@@ -51,12 +53,17 @@ class ConnectionFunctions {
     }
   }
 
+  //in this fun we see if student rolled in this course
+  //if yes he will add his info to temp list so he can't roll in more than one time
   bool rolledIn(ConnectionInfo info, String id) {
     bool exist = false;
-    int studentId = int.parse(info.endpointName);
+    String studentInfo =info.endpointName;
+    int studentId = int.parse(studentInfo.substring(0,14));
+    int studentIMEI = int.parse(studentInfo.substring(15));
     for (var student in allStudents) {
       if (studentId == student['nationalId']) {
         attendedStudents.add(student);
+        attendedIMEI.add(studentIMEI);
         connectedStudents[id] = student['name'];
         exist = true;
         break;
@@ -67,7 +74,15 @@ class ConnectionFunctions {
 
   bool attended(ConnectionInfo info){
     bool result=false;
-     int studentId = int.parse(info.endpointName);
+    String studentInfo =info.endpointName;
+     int studentId = int.parse(studentInfo.substring(0,14));
+     int studentIMEI = int.parse(studentInfo.substring(15));
+     for(int IMEI in attendedIMEI){
+       if(IMEI == studentIMEI) {
+         result=true;
+         break;
+       }
+     }
     for(var student in attendedStudents){
       if(studentId == student['nationalId']){
         result =true;
@@ -82,6 +97,7 @@ class ConnectionFunctions {
     await Nearby().stopAdvertising();
     await Nearby().stopAllEndpoints();
     connectedStudents.clear();
+    // ignore: use_build_context_synchronously
     showDialog(context: context, builder: (_){
       return SaveData(attendedStudents: attendedStudents, courseName: course);
     });
