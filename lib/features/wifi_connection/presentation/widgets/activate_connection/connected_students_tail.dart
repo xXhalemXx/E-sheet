@@ -20,15 +20,14 @@ class ConnectedStudentsTail extends StatelessWidget {
       child: ListTile(
         tileColor: Colors.greenAccent,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
-        title: Padding(
-          padding: const EdgeInsets.only(top: 8),
-          child: AutoSizeText(
-            "${AllTexts.name}: $studentName",
-            maxLines: 1,
+        title: Center(
+            child: AutoSizeText(
+              studentName,
+              maxLines: 1,
+            ),
           ),
-        ),
-        subtitle: const Text(AllTexts.isConnected),
-        trailing: IconButton(
+
+       /* trailing: IconButton(
           onPressed: () {
             Nearby().disconnectFromEndpoint(studentId);
               getIt<ConnectionFunctions>().connectedStudents.remove(studentId);
@@ -37,7 +36,7 @@ class ConnectedStudentsTail extends StatelessWidget {
           icon: const Icon(Icons.delete),
           splashColor: Colors.red,
           splashRadius: 25,
-        ),
+        ),*/
       ),
     );
   }

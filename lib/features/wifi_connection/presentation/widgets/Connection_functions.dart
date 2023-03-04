@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:e_sheet/core/injection/injection_modeling.dart';
 import 'package:e_sheet/features/students/presentation/manager/student_cubit.dart';
 import 'package:e_sheet/features/wifi_connection/presentation/manager/connection_cubit.dart';
@@ -34,64 +36,6 @@ class ConnectionFunctions {
     return value;
   }
 
-  void onConnectionInit(String id, ConnectionInfo info) async {
-
-    if (attended(info)==false && rolledIn(info, id) ) {
-      getIt<ConnectionCubit>().reloadConnectedStudents(connectedStudents);
-      Nearby().acceptConnection(
-        id,
-        onPayLoadRecieved: (_, payload) {},
-        onPayloadTransferUpdate: (_, payloadTransferUpdate) {},
-      );
-
-      await Future.delayed(const Duration(microseconds: 200));
-      Nearby().disconnectFromEndpoint(id);
-      connectedStudents.remove(id);
-      getIt<ConnectionCubit>().reloadConnectedStudents(connectedStudents);
-    } else {
-      Nearby().rejectConnection(id);
-    }
-  }
-
-  //in this fun we see if student rolled in this course
-  //if yes he will add his info to temp list so he can't roll in more than one time
-  bool rolledIn(ConnectionInfo info, String id) {
-    bool exist = false;
-    String studentInfo =info.endpointName;
-    int studentId = int.parse(studentInfo.substring(0,14));
-    int studentIMEI = int.parse(studentInfo.substring(15));
-    for (var student in allStudents) {
-      if (studentId == student['nationalId']) {
-        attendedStudents.add(student);
-        attendedIMEI.add(studentIMEI);
-        connectedStudents[id] = student['name'];
-        exist = true;
-        break;
-      }
-    }
-    return exist;
-  }
-
-  bool attended(ConnectionInfo info){
-    bool result=false;
-    String studentInfo =info.endpointName;
-     int studentId = int.parse(studentInfo.substring(0,14));
-     int studentIMEI = int.parse(studentInfo.substring(15));
-     for(int IMEI in attendedIMEI){
-       if(IMEI == studentIMEI) {
-         result=true;
-         break;
-       }
-     }
-    for(var student in attendedStudents){
-      if(studentId == student['nationalId']){
-        result =true;
-        break;
-      }
-
-    }
-    return result;
-  }
 
   Future<void> stopConnection(BuildContext context) async {
     await Nearby().stopAdvertising();
@@ -102,6 +46,103 @@ class ConnectionFunctions {
       return SaveData(attendedStudents: attendedStudents, courseName: course);
     });
   }
+
+  //status codes 0-> student attended
+  //status codes 1-> student not rolled in this class
+  //status codes 2-> student already attended
+  //status codes 3-> student used this device to attend
+  void onConnectionInit(String id, ConnectionInfo info) async {
+    Nearby().acceptConnection(
+      id,
+      onPayLoadRecieved: (_, payload) {},
+      onPayloadTransferUpdate: (_, payloadTransferUpdate) {},
+    );
+
+    if (rolledIn(info, id)) {
+      if(!attended(info)) {
+        if (!usedSameDevice(info)){
+          addStudentInfo(info, id);
+          getIt<ConnectionCubit>().reloadConnectedStudents(connectedStudents);
+          Nearby().sendBytesPayload(id, Uint8List.fromList('0'.codeUnits));
+          await Future.delayed(const Duration(seconds: 1));
+          Nearby().sendBytesPayload(id, Uint8List.fromList('0'.codeUnits));
+          Nearby().disconnectFromEndpoint(id);
+        }else{
+          Nearby().sendBytesPayload(id, Uint8List.fromList('3'.codeUnits));
+          await Future.delayed(const Duration(seconds: 1));
+          Nearby().sendBytesPayload(id, Uint8List.fromList('3'.codeUnits));
+          Nearby().disconnectFromEndpoint(id);
+        }
+      }else{
+        Nearby().sendBytesPayload(id, Uint8List.fromList('2'.codeUnits));
+        await Future.delayed(const Duration(seconds: 1));
+        Nearby().sendBytesPayload(id, Uint8List.fromList('2'.codeUnits));
+        Nearby().disconnectFromEndpoint(id);
+      }
+    } else {
+      Nearby().sendBytesPayload(id, Uint8List.fromList('1'.codeUnits));
+      await Future.delayed(const Duration(seconds: 1));
+      Nearby().sendBytesPayload(id, Uint8List.fromList('1'.codeUnits));
+      Nearby().disconnectFromEndpoint(id);
+    }
+  }
+
+  //in this fun we see if student rolled in this course
+  //if yes he will add his info (student id , phone IMEI) to temp list so he can't roll in more than one time
+  bool rolledIn(ConnectionInfo info, String id) {
+    bool result = false;
+    String studentInfo =info.endpointName;
+    int studentId = int.parse(studentInfo.substring(0,14));
+    for (var student in allStudents) {
+      if (studentId == student['nationalId']) {
+        result = true;
+        break;
+      }
+    }
+    return result;
+  }
+
+  bool attended(ConnectionInfo info){
+    bool result=false;
+    String studentInfo =info.endpointName;
+    int studentId = int.parse(studentInfo.substring(0,14));
+    for(var student in attendedStudents){
+      if(studentId == student['nationalId']){
+        result =true;
+        break;
+      }
+
+    }
+    return result;
+  }
+
+  void addStudentInfo(ConnectionInfo info, String id) {
+    String studentInfo = info.endpointName;
+    int studentId = int.parse(studentInfo.substring(0, 14));
+    int studentIMEI = int.parse(studentInfo.substring(15));
+    attendedIMEI.add(studentIMEI);
+    for (var student in allStudents) {
+      if (studentId == student['nationalId']) {
+        attendedStudents.add(student);
+        connectedStudents[id] = student['name'];
+        break;
+      }
+    }
+  }
+
+  bool usedSameDevice(ConnectionInfo info){
+    bool result=false;
+    String studentInfo =info.endpointName;
+     int studentIMEI = int.parse(studentInfo.substring(15));
+     for(int IMEI in attendedIMEI){
+       if(IMEI == studentIMEI) {
+         result=true;
+         break;
+       }
+    }
+     return result;
+  }
+
 
 }
 

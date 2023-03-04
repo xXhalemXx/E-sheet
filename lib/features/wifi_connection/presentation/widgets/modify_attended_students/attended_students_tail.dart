@@ -15,7 +15,7 @@ class AttendedStudentsTail extends StatelessWidget {
         tileColor: color,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
         title: AutoSizeText(
-          "name: ${student['name']}",
+          "${student['name']}",
           maxLines: 1,
         ),
         trailing: IconButton(

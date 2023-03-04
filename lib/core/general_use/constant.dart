@@ -39,7 +39,7 @@ class AllTexts{
   static const String onlyOneStudent='1 attended student';
   static const String attendanceStudents='attended students';
   static const String noOneConnected='No one connected yet\nAsk students to connect';
-  static const String isConnected='is connected';
+  static const String isConnected='Attended';
   static const String createLocalNetwork='creating local network';
   static const String grantPermission='press to grant permissions';
   static const String selectCourseToExport='Select course to export';
