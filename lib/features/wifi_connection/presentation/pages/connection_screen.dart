@@ -21,12 +21,10 @@ class ConnectionScreen extends StatefulWidget {
 }
 
 class _ConnectionScreenState extends State<ConnectionScreen> {
-
   late String globalId;
 
   @override
   void initState() {
-
     super.initState();
     getIt<ConnectionCubit>().setupLocalConnection();
   }
@@ -34,8 +32,6 @@ class _ConnectionScreenState extends State<ConnectionScreen> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-
-
       onWillPop: () {
         return backButtonPressed(context);
       },
@@ -60,17 +56,19 @@ class _ConnectionScreenState extends State<ConnectionScreen> {
                   return ActivatedConnectionWidget(
                     connectedStudents: connectedStudents,
                   );
-                }, modifyAttendedStudents: (List<Map<String, dynamic>> attendedStudents) {
-                  return ModifyAttendedStudentsWidget(attendedStudents: attendedStudents);
+                }, modifyAttendedStudents:
+                    (List<Map<String, dynamic>> attendedStudents) {
+                  return ModifyAttendedStudentsWidget(
+                      attendedStudents: attendedStudents);
                 });
               }),
             ),
-            floatingActionButton:const FloatingCloseButton(),
+            floatingActionButton: const FloatingCloseButton(),
+            floatingActionButtonLocation:
+                FloatingActionButtonLocation.centerFloat,
           )),
     );
   }
-
-
 
   BoxDecoration backGroundColor() {
     return const BoxDecoration(
@@ -87,32 +85,32 @@ class _ConnectionScreenState extends State<ConnectionScreen> {
   }
 }
 
-
-Future<bool> backButtonPressed(BuildContext context) async{
-  if(getIt<ConnectionCubit>().state is ConnectionActivate)
-    {
+Future<bool> backButtonPressed(BuildContext context) async {
+  if (getIt<ConnectionCubit>().state is ConnectionActivate) {
     showDialog<void>(
       context: context,
       barrierDismissible: false,
       builder: (_) {
-        return const LocalNetworkWarning(msg:AllTexts.closeLocalNetwork ,);
+        return const LocalNetworkWarning(
+          msg: AllTexts.closeLocalNetwork,
+        );
       },
     );
     return false;
-  }else if(getIt<ConnectionCubit>().state is ModifyAttendedStudents)
-  {
+  } else if (getIt<ConnectionCubit>().state is ModifyAttendedStudents) {
     showDialog<void>(
       context: context,
       barrierDismissible: false,
       builder: (_) {
-        return const LocalNetworkWarning(msg:AllTexts.saveDataFirst ,);
+        return const LocalNetworkWarning(
+          msg: AllTexts.saveDataFirst,
+        );
       },
     );
     return false;
-  }else {
+  } else {
     getIt.resetLazySingleton<ConnectionCubit>();
     getIt.resetLazySingleton<ConnectionFunctions>();
     return true;
   }
-
 }

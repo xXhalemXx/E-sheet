@@ -28,7 +28,11 @@ modifyStudentDialog(BuildContext context, String studentName,
                     children: [
                       ModifyTextFiled(studentName: studentName),
                       const SizedBox(
-                        height: 15,
+                        height: 10,
+                      ),
+                      AutoSizeText('Student ID:$studentNationalId'),
+                      const SizedBox(
+                        height: 10,
                       ),
                       SizedBox(
                         width: MediaQuery.of(context).size.width,

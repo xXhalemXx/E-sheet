@@ -8,17 +8,12 @@ class SaveDataFloatingButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-          bottom: MediaQuery.of(context).size.height * 0.01,
-          right: MediaQuery.of(context).size.width * 0.36),
-      child: FloatingActionButton(
-          onPressed: () async {
-            await getIt<ConnectionFunctions>().stopConnection(context);
-          },
-          backgroundColor: Colors.blueAccent,
-          tooltip: 'Stop Local Network',
-          child: const Icon(Icons.save)),
-    );
+    return FloatingActionButton(
+        onPressed: () async {
+          await getIt<ConnectionFunctions>().stopConnection(context);
+        },
+        backgroundColor: Colors.blueAccent,
+        tooltip: 'Stop Local Network',
+        child: const Icon(Icons.save));
   }
 }

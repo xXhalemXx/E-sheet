@@ -29,7 +29,7 @@ class CoursesToShowConnection extends StatelessWidget {
         SimpleDialogOption(
           onPressed: () async {
             Navigator.pop(context);
-           // getIt<ConnectionCubit>().waitingState();
+            getIt<ConnectionCubit>().waitingState();
             courseName = course;
             if(await getIt<ConnectionFunctions>().startConnection(courseName) ) {
               getIt<ConnectionCubit>().activateLocalNetwork({});

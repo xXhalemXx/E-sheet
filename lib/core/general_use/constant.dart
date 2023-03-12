@@ -36,7 +36,7 @@ class AllTexts{
   static const String attendanceTimes='Attendance ';
   static const String closeLocalNetwork='Close local network first';
   static const String saveDataFirst='Save data first';
-  static const String onlyOneStudent='1 attended student';
+  static const String onlyOneStudent='1 student attended';
   static const String attendanceStudents='attended students';
   static const String noOneConnected='No one connected yet\nAsk students to connect';
   static const String isConnected='Attended';

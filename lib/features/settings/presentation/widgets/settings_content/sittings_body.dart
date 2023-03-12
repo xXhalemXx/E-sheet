@@ -1,6 +1,7 @@
 import 'package:e_sheet/features/settings/presentation/pages/about_screen.dart';
 import 'package:e_sheet/features/settings/presentation/pages/edit_name_screen.dart';
 import 'package:e_sheet/features/settings/presentation/pages/export_screen.dart';
+import 'package:e_sheet/features/settings/presentation/pages/import_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -36,7 +37,21 @@ class SittingsBody extends StatelessWidget {
                   Icons.import_export,
                   color: Colors.blue,
                 ),
-                Text('Export '),
+                Text('Import'),
+              ],
+            ),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (_)=>const ImportScreen()));
+            },
+          ),
+          ListTile(
+            title: Row(
+              children: const [
+                Icon(
+                  Icons.file_download,
+                  color: Colors.blue,
+                ),
+                Text('Save Course'),
               ],
             ),
             onTap: () {
