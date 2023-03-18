@@ -1,6 +1,7 @@
 import 'package:e_sheet/core/injection/injection_modeling.dart';
 import 'package:e_sheet/features/students/domain/entities/student_entities.dart';
 import 'package:e_sheet/features/students/presentation/manager/student_cubit.dart';
+import 'package:e_sheet/features/wifi_connection/domain/entities/student_date_entities.dart';
 import 'package:e_sheet/features/wifi_connection/presentation/manager/connection_cubit.dart';
 import 'package:e_sheet/features/wifi_connection/presentation/widgets/Connection_functions.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -55,6 +56,10 @@ class SaveData extends StatelessWidget {
   }
 
   yesPressed(String courseName, BuildContext context) {
+    int currentDate =DateTime.now().millisecondsSinceEpoch;
+    print(DateTime.now().millisecondsSinceEpoch);
+    final DateTime date2 = DateTime.fromMillisecondsSinceEpoch(currentDate);
+    print(date2);
     for (var student in attendedStudents) {
       Student tempStudent = Student(
           name: student['name'],
@@ -62,6 +67,15 @@ class SaveData extends StatelessWidget {
           atendNumber: (student['atendNumber'] + 1));
       getIt<StudentsCubit>().updateStudent(tempStudent, courseName);
     }
+
+    for(var student in attendedStudents)
+      {
+        StudentDate tempStudent=StudentDate(date: currentDate, nationalId: student['nationalId']);
+        getIt<StudentsDateCubit>().addStudent(tempStudent, '${courseName}WithDate');
+
+      }
+
+
     Navigator.pop(context);
     getIt<ConnectionCubit>().setupLocalConnection();
     getIt.resetLazySingleton<ConnectionFunctions>();

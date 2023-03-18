@@ -13,6 +13,12 @@ import 'package:e_sheet/features/students/domain/use_cases/delete_student_use_ca
 import 'package:e_sheet/features/students/domain/use_cases/show_students_use_case.dart';
 import 'package:e_sheet/features/students/domain/use_cases/update_student_use_case.dart';
 import 'package:e_sheet/features/students/presentation/manager/student_cubit.dart';
+import 'package:e_sheet/features/wifi_connection/data/local/data_sources/local_database_student_date.dart';
+import 'package:e_sheet/features/wifi_connection/data/repositories/students_date_repositories%20_impl.dart';
+import 'package:e_sheet/features/wifi_connection/domain/repositories/students_date_repositories.dart';
+import 'package:e_sheet/features/wifi_connection/domain/use_cases/add_student_date_use_case.dart';
+import 'package:e_sheet/features/wifi_connection/domain/use_cases/delete_student_date_use_case.dart';
+import 'package:e_sheet/features/wifi_connection/domain/use_cases/show_students_date_use_case.dart';
 import 'package:e_sheet/features/wifi_connection/presentation/manager/connection_cubit.dart';
 import 'package:e_sheet/features/wifi_connection/presentation/widgets/Connection_functions.dart';
 import 'package:get_it/get_it.dart';
@@ -53,6 +59,20 @@ void initGetIt() {
   getIt.registerLazySingleton<ConnectionCubit>(() => ConnectionCubit());
 
   getIt.registerLazySingleton<ConnectionFunctions>(() => ConnectionFunctions());
+
+  //studentsDate cubit
+  getIt.registerLazySingleton<StudentsDateCubit>(() => StudentsDateCubit(showStudents: getIt<ShowStudentsDate>(), addStudentFun: getIt<AddStudentDate>(), deleteStudentFun: getIt<DeleteStudentDate>()));
+
+  //studentsDate use cases
+  getIt.registerLazySingleton<ShowStudentsDate>(() => ShowStudentsDate(studentsDataRepositories: getIt<StudentsDataRepositories>()));
+  getIt.registerLazySingleton<AddStudentDate>(() => AddStudentDate(studentsDataRepositories: getIt<StudentsDataRepositories>()));
+  getIt.registerLazySingleton<DeleteStudentDate>(() => DeleteStudentDate(studentsDateRepositories: getIt<StudentsDataRepositories>()));
+
+  // studentsDate repository
+  getIt.registerLazySingleton<StudentsDataRepositories>(() => StudentsDataRepositoriesImpl(studentsDataSource: getIt<StudentsDateSource>()));
+
+  //studentDate data source
+  getIt.registerLazySingleton<StudentsDateSource>(() => StudentDataSourceImpl());
 
 
 }

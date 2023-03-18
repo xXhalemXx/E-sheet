@@ -1015,3 +1015,323 @@ abstract class ModifyAttendedStudents implements ConnectionStates {
   _$$ModifyAttendedStudentsCopyWith<_$ModifyAttendedStudents> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+/// @nodoc
+mixin _$StudentDateStates {
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() studentDateInitialState,
+    required TResult Function(List<Map<String, dynamic>> studentsDate)
+        reloadedStudentsDate,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? studentDateInitialState,
+    TResult Function(List<Map<String, dynamic>> studentsDate)?
+        reloadedStudentsDate,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? studentDateInitialState,
+    TResult Function(List<Map<String, dynamic>> studentsDate)?
+        reloadedStudentsDate,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(StudentDateInitialState value)
+        studentDateInitialState,
+    required TResult Function(ReloadedStudentsDate value) reloadedStudentsDate,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(StudentDateInitialState value)? studentDateInitialState,
+    TResult Function(ReloadedStudentsDate value)? reloadedStudentsDate,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(StudentDateInitialState value)? studentDateInitialState,
+    TResult Function(ReloadedStudentsDate value)? reloadedStudentsDate,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $StudentDateStatesCopyWith<$Res> {
+  factory $StudentDateStatesCopyWith(
+          StudentDateStates value, $Res Function(StudentDateStates) then) =
+      _$StudentDateStatesCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$StudentDateStatesCopyWithImpl<$Res>
+    implements $StudentDateStatesCopyWith<$Res> {
+  _$StudentDateStatesCopyWithImpl(this._value, this._then);
+
+  final StudentDateStates _value;
+  // ignore: unused_field
+  final $Res Function(StudentDateStates) _then;
+}
+
+/// @nodoc
+abstract class _$$StudentDateInitialStateCopyWith<$Res> {
+  factory _$$StudentDateInitialStateCopyWith(_$StudentDateInitialState value,
+          $Res Function(_$StudentDateInitialState) then) =
+      __$$StudentDateInitialStateCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$StudentDateInitialStateCopyWithImpl<$Res>
+    extends _$StudentDateStatesCopyWithImpl<$Res>
+    implements _$$StudentDateInitialStateCopyWith<$Res> {
+  __$$StudentDateInitialStateCopyWithImpl(_$StudentDateInitialState _value,
+      $Res Function(_$StudentDateInitialState) _then)
+      : super(_value, (v) => _then(v as _$StudentDateInitialState));
+
+  @override
+  _$StudentDateInitialState get _value =>
+      super._value as _$StudentDateInitialState;
+}
+
+/// @nodoc
+
+class _$StudentDateInitialState implements StudentDateInitialState {
+  const _$StudentDateInitialState();
+
+  @override
+  String toString() {
+    return 'StudentDateStates.studentDateInitialState()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$StudentDateInitialState);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() studentDateInitialState,
+    required TResult Function(List<Map<String, dynamic>> studentsDate)
+        reloadedStudentsDate,
+  }) {
+    return studentDateInitialState();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? studentDateInitialState,
+    TResult Function(List<Map<String, dynamic>> studentsDate)?
+        reloadedStudentsDate,
+  }) {
+    return studentDateInitialState?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? studentDateInitialState,
+    TResult Function(List<Map<String, dynamic>> studentsDate)?
+        reloadedStudentsDate,
+    required TResult orElse(),
+  }) {
+    if (studentDateInitialState != null) {
+      return studentDateInitialState();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(StudentDateInitialState value)
+        studentDateInitialState,
+    required TResult Function(ReloadedStudentsDate value) reloadedStudentsDate,
+  }) {
+    return studentDateInitialState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(StudentDateInitialState value)? studentDateInitialState,
+    TResult Function(ReloadedStudentsDate value)? reloadedStudentsDate,
+  }) {
+    return studentDateInitialState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(StudentDateInitialState value)? studentDateInitialState,
+    TResult Function(ReloadedStudentsDate value)? reloadedStudentsDate,
+    required TResult orElse(),
+  }) {
+    if (studentDateInitialState != null) {
+      return studentDateInitialState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class StudentDateInitialState implements StudentDateStates {
+  const factory StudentDateInitialState() = _$StudentDateInitialState;
+}
+
+/// @nodoc
+abstract class _$$ReloadedStudentsDateCopyWith<$Res> {
+  factory _$$ReloadedStudentsDateCopyWith(_$ReloadedStudentsDate value,
+          $Res Function(_$ReloadedStudentsDate) then) =
+      __$$ReloadedStudentsDateCopyWithImpl<$Res>;
+  $Res call({List<Map<String, dynamic>> studentsDate});
+}
+
+/// @nodoc
+class __$$ReloadedStudentsDateCopyWithImpl<$Res>
+    extends _$StudentDateStatesCopyWithImpl<$Res>
+    implements _$$ReloadedStudentsDateCopyWith<$Res> {
+  __$$ReloadedStudentsDateCopyWithImpl(_$ReloadedStudentsDate _value,
+      $Res Function(_$ReloadedStudentsDate) _then)
+      : super(_value, (v) => _then(v as _$ReloadedStudentsDate));
+
+  @override
+  _$ReloadedStudentsDate get _value => super._value as _$ReloadedStudentsDate;
+
+  @override
+  $Res call({
+    Object? studentsDate = freezed,
+  }) {
+    return _then(_$ReloadedStudentsDate(
+      studentsDate == freezed
+          ? _value._studentsDate
+          : studentsDate // ignore: cast_nullable_to_non_nullable
+              as List<Map<String, dynamic>>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ReloadedStudentsDate implements ReloadedStudentsDate {
+  const _$ReloadedStudentsDate(final List<Map<String, dynamic>> studentsDate)
+      : _studentsDate = studentsDate;
+
+  final List<Map<String, dynamic>> _studentsDate;
+  @override
+  List<Map<String, dynamic>> get studentsDate {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_studentsDate);
+  }
+
+  @override
+  String toString() {
+    return 'StudentDateStates.reloadedStudentsDate(studentsDate: $studentsDate)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ReloadedStudentsDate &&
+            const DeepCollectionEquality()
+                .equals(other._studentsDate, _studentsDate));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_studentsDate));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$ReloadedStudentsDateCopyWith<_$ReloadedStudentsDate> get copyWith =>
+      __$$ReloadedStudentsDateCopyWithImpl<_$ReloadedStudentsDate>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() studentDateInitialState,
+    required TResult Function(List<Map<String, dynamic>> studentsDate)
+        reloadedStudentsDate,
+  }) {
+    return reloadedStudentsDate(studentsDate);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? studentDateInitialState,
+    TResult Function(List<Map<String, dynamic>> studentsDate)?
+        reloadedStudentsDate,
+  }) {
+    return reloadedStudentsDate?.call(studentsDate);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? studentDateInitialState,
+    TResult Function(List<Map<String, dynamic>> studentsDate)?
+        reloadedStudentsDate,
+    required TResult orElse(),
+  }) {
+    if (reloadedStudentsDate != null) {
+      return reloadedStudentsDate(studentsDate);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(StudentDateInitialState value)
+        studentDateInitialState,
+    required TResult Function(ReloadedStudentsDate value) reloadedStudentsDate,
+  }) {
+    return reloadedStudentsDate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(StudentDateInitialState value)? studentDateInitialState,
+    TResult Function(ReloadedStudentsDate value)? reloadedStudentsDate,
+  }) {
+    return reloadedStudentsDate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(StudentDateInitialState value)? studentDateInitialState,
+    TResult Function(ReloadedStudentsDate value)? reloadedStudentsDate,
+    required TResult orElse(),
+  }) {
+    if (reloadedStudentsDate != null) {
+      return reloadedStudentsDate(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ReloadedStudentsDate implements StudentDateStates {
+  const factory ReloadedStudentsDate(
+      final List<Map<String, dynamic>> studentsDate) = _$ReloadedStudentsDate;
+
+  List<Map<String, dynamic>> get studentsDate;
+  @JsonKey(ignore: true)
+  _$$ReloadedStudentsDateCopyWith<_$ReloadedStudentsDate> get copyWith =>
+      throw _privateConstructorUsedError;
+}

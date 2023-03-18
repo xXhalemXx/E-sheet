@@ -84,6 +84,9 @@ class MainPageState extends State<MainPage> {
                 ),
                 BlocProvider<CoursesCubit>(
                   create: (context) => getIt<CoursesCubit>(),
+                ),
+                BlocProvider<StudentsDateCubit>(
+                  create: (context) => getIt<StudentsDateCubit>(),
                 )
               ],
               child: const ConnectionScreen(),

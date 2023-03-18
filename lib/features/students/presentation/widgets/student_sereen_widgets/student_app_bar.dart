@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 
 class StudentAppBar extends AppBar {
   final String courseName;
+  final bool enableSearch;
 
-  StudentAppBar({super.key, required this.courseName});
+  StudentAppBar(
+      {super.key, required this.courseName, required this.enableSearch});
 
   @override
   State<StudentAppBar> createState() => _StudentAppBarState();
@@ -14,24 +16,22 @@ class _StudentAppBarState extends State<StudentAppBar> {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      centerTitle: true,
       elevation: 0,
       automaticallyImplyLeading: false,
-      title: Padding(
-        padding: EdgeInsets.only(left: MediaQuery
-            .of(context)
-            .size
-            .width * 0.1),
-        child: Center(child: Text(removeUnderscore(widget.courseName))),
-      ),
-      actions: [
-        IconButton(
-            onPressed: () {
-              showSearch(
-                  context: context,
-                  delegate: NewSearchDelegate(courseName: widget.courseName));
-            },
-            icon: const Icon(Icons.search)),
-      ],
+      title: Text(removeUnderscore(widget.courseName)),
+      actions: widget.enableSearch
+          ? [
+              IconButton(
+                  onPressed: () {
+                    showSearch(
+                        context: context,
+                        delegate:
+                            NewSearchDelegate(courseName: widget.courseName));
+                  },
+                  icon: const Icon(Icons.search)),
+            ]
+          : [],
     );
   }
 
@@ -47,8 +47,4 @@ class _StudentAppBarState extends State<StudentAppBar> {
     }
     return tempString;
   }
-
 }
-
-
-

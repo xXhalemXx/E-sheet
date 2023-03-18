@@ -26,30 +26,12 @@ class CourseNameFiled extends StatelessWidget{
     }
 
   String? courseNameValidate(String? value) {
-
+    final validCharacters = RegExp(r"^[\u0621-\u064A a-zA-z]+$");
     if (value == null || value.isEmpty||value=='') {
       return 'You need to fill this field 😒';
     }
-    else if (value.contains('.') ||
-        value.contains('/') ||
-        value.contains('\\')||
-        value.contains('}') ||
-        value.contains('{') ||
-        value.contains('@') ||
-        value.contains('#') ||
-        value.contains('!') ||
-        value.contains('\$')||
-        value.contains('%') ||
-        value.contains('^') ||
-        value.contains('&') ||
-        value.contains('*') ||
-        value.contains('(') ||
-        value.contains(')')||
-        value.contains('_') ||
-        value.contains(',') ||
-        value.contains('?') ||
-        value.contains('+')) {
-      return 'you cant use any special character\nlike # % ^ { } ( ) @ ! .';
+    else if (!validCharacters.hasMatch(value)) {
+      return 'you cant use alphabet only';
     }
     return null;
 

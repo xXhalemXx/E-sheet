@@ -64,18 +64,12 @@ class ConnectionFunctions {
           addStudentInfo(info, id);
           getIt<ConnectionCubit>().reloadConnectedStudents(connectedStudents);
           Nearby().sendBytesPayload(id, Uint8List.fromList('0'.codeUnits));
-          await Future.delayed(const Duration(seconds: 1));
-          Nearby().sendBytesPayload(id, Uint8List.fromList('0'.codeUnits));
           Nearby().disconnectFromEndpoint(id);
         }else{
-          Nearby().sendBytesPayload(id, Uint8List.fromList('3'.codeUnits));
-          await Future.delayed(const Duration(seconds: 1));
           Nearby().sendBytesPayload(id, Uint8List.fromList('3'.codeUnits));
           Nearby().disconnectFromEndpoint(id);
         }
       }else{
-        Nearby().sendBytesPayload(id, Uint8List.fromList('2'.codeUnits));
-        await Future.delayed(const Duration(seconds: 1));
         Nearby().sendBytesPayload(id, Uint8List.fromList('2'.codeUnits));
         Nearby().disconnectFromEndpoint(id);
       }
@@ -92,8 +86,9 @@ class ConnectionFunctions {
   bool rolledIn(ConnectionInfo info, String id) {
     bool result = false;
     String studentInfo =info.endpointName;
-    int studentId = int.parse(studentInfo.substring(0,14));
+    int studentId = int.parse(studentInfo.substring(0,4));
     for (var student in allStudents) {
+      print('$student---->$studentId');
       if (studentId == student['nationalId']) {
         result = true;
         break;
@@ -105,7 +100,7 @@ class ConnectionFunctions {
   bool attended(ConnectionInfo info){
     bool result=false;
     String studentInfo =info.endpointName;
-    int studentId = int.parse(studentInfo.substring(0,14));
+    int studentId = int.parse(studentInfo.substring(0,4));
     for(var student in attendedStudents){
       if(studentId == student['nationalId']){
         result =true;
@@ -118,8 +113,8 @@ class ConnectionFunctions {
 
   void addStudentInfo(ConnectionInfo info, String id) {
     String studentInfo = info.endpointName;
-    int studentId = int.parse(studentInfo.substring(0, 14));
-    int studentIMEI = int.parse(studentInfo.substring(15));
+    int studentId = int.parse(studentInfo.substring(0, 4));
+    int studentIMEI = int.parse(studentInfo.substring(5));
     attendedIMEI.add(studentIMEI);
     for (var student in allStudents) {
       if (studentId == student['nationalId']) {
@@ -133,7 +128,7 @@ class ConnectionFunctions {
   bool usedSameDevice(ConnectionInfo info){
     bool result=false;
     String studentInfo =info.endpointName;
-     int studentIMEI = int.parse(studentInfo.substring(15));
+     int studentIMEI = int.parse(studentInfo.substring(5));
      for(int IMEI in attendedIMEI){
        if(IMEI == studentIMEI) {
          result=true;

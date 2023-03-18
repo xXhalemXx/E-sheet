@@ -17,11 +17,11 @@ class DeleteCourseDialog extends StatelessWidget{
       title: const Text(
        AllTexts.warning,
         style: TextStyle(
-            color: AllColors.warningColor, fontWeight: FontWeight.bold, fontSize: 25),
+            color: AllColors.warningColor, fontSize: 25),
       ),
       content: Text(
         '${AllTexts.deleteConfirmation}\n$dropDownValue',
-        style: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+        style: const TextStyle(fontSize: 17),
         textAlign: TextAlign.center,
       ),
       shape: RoundedRectangleBorder(

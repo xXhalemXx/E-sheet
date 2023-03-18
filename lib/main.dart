@@ -3,7 +3,9 @@ import 'package:e_sheet/core/welcome_screen/welcome_screen.dart';
 import 'package:e_sheet/features/courses/presentation/manager/courses_cubit.dart';
 import 'package:e_sheet/features/courses/presentation/pages/main_page.dart';
 import 'package:e_sheet/features/students/presentation/manager/student_cubit.dart';
+import 'package:e_sheet/features/wifi_connection/presentation/manager/connection_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -42,13 +44,16 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'E-Sheet',
       home: mainWidget(),
     );
   }
-
 
   /*Widget mainWidget() {
 
@@ -74,19 +79,21 @@ class _MyAppState extends State<MyApp> {
           FlutterNativeSplash.remove();
           return checkIfNull()
               ? WelcomeScreen(
-            prefs: prefs,
-          )
+                  prefs: prefs,
+                )
               : MultiBlocProvider(
-            providers: [
-              BlocProvider<CoursesCubit>(
-                  create: (_) => getIt<CoursesCubit>()),
-              BlocProvider<StudentsCubit>(
-                  create: (_) => getIt<StudentsCubit>()),
-            ],
-            child: MainPage(
-              prefs: prefs,
-            ),
-          );
+                  providers: [
+                    BlocProvider<CoursesCubit>(
+                        create: (_) => getIt<CoursesCubit>()),
+                    BlocProvider<StudentsCubit>(
+                        create: (_) => getIt<StudentsCubit>()),
+                    BlocProvider<StudentsDateCubit>(
+                        create: (_) => getIt<StudentsDateCubit>()),
+                  ],
+                  child: MainPage(
+                    prefs: prefs,
+                  ),
+                );
         } else {
           return const SizedBox();
         }
@@ -108,5 +115,4 @@ class _MyAppState extends State<MyApp> {
     await Future.delayed(const Duration(seconds: 1, milliseconds: 50));
     return true;
   }
-
 }

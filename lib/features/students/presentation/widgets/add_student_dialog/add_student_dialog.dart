@@ -64,52 +64,20 @@ class AddStudentDialog extends StatelessWidget {
   }
 
   String? studentNameValidate(String? value) {
+    final validCharacters = RegExp(r"^[\u0621-\u064A a-zA-z]+$");
     if (value == null || value.isEmpty) {
       return AllTexts.youNeedToFillThis ;
-    } else if (value.contains('.') ||
-        value.contains('/') ||
-        value.contains('\\') ||
-        value.contains('}') ||
-        value.contains('{') ||
-        value.contains('@') ||
-        value.contains('#') ||
-        value.contains('!') ||
-        value.contains('\$') ||
-        value.contains('%') ||
-        value.contains('^') ||
-        value.contains('&') ||
-        value.contains('*') ||
-        value.contains('(') ||
-        value.contains(')') ||
-        value.contains('_') ||
-        value.contains('+')) {
+    } else if (!validCharacters.hasMatch(value)) {
       return AllTexts.noSpecialCharacters ;
     }
     return null;
   }
-
+//todo change 14 to new value
   String? nationalIdValidate(String? value) {
+    final validCharacters = RegExp(r"^\d+$");
     if (value == null || value.isEmpty) {
       return AllTexts.youNeedToFillThis;
-    } else if (value.length != 14) {
-      return AllTexts.idMustBe14 ;
-    } else if (value.contains('.') ||
-        value.contains('/') ||
-        value.contains('\\') ||
-        value.contains('}') ||
-        value.contains('{') ||
-        value.contains('@') ||
-        value.contains('#') ||
-        value.contains('!') ||
-        value.contains('\$') ||
-        value.contains('%') ||
-        value.contains('^') ||
-        value.contains('&') ||
-        value.contains('*') ||
-        value.contains('(') ||
-        value.contains(')') ||
-        value.contains('_') ||
-        value.contains('+')) {
+    } else if (!validCharacters.hasMatch(value)) {
       return AllTexts.noSpecialCharacters;
     }
     return null;

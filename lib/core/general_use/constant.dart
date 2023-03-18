@@ -19,9 +19,9 @@ class AllTexts{
   static const String deleteCourse='Delete this course';
   static const String addStudent="Add Student";
   static const String enterStudentName="Enter Student Name";
-  static const String enterStudentId="Enter Student National Id";
+  static const String enterStudentId="Enter Student Number";
   static const String youNeedToFillThis="you need to fill this";
-  static const String noSpecialCharacters='you cant put any special characters';
+  static const String noSpecialCharacters='you can\'t enter this value';
   static const String idMustBe14="your national id must equal 14 number";
   static const String add="Add";
   static const String uniqueId="There's another student use this ID";
@@ -31,7 +31,10 @@ class AllTexts{
   static const String modifyStudent='Modify student data';
   static const String changeAttendance='Increase or decrease attendance number';
   static const String noStudentsToShow="No students to show";
+  static const String noLecturesYet="No lectures to show";
   static const String rolledStudents="Students rolled in this course";
+  static const String allLectures="Lectures with date";
+  static const String attendedStudentsWithDate="Attended Students";
   static const String name="name";
   static const String attendanceTimes='Attendance ';
   static const String closeLocalNetwork='Close local network first';

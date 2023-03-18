@@ -1,0 +1,31 @@
+import 'package:e_sheet/core/general_use/constant.dart';
+import 'package:e_sheet/features/students/presentation/widgets/students_list/list_of_students.dart';
+import 'package:flutter/material.dart';
+import 'package:e_sheet/features/students/presentation/widgets/student_sereen_widgets/student_header.dart';
+
+Widget allStudentsNoDate(BuildContext context, String courseName) {
+  return Center(
+    child: Column(children: [
+      //contain search bar
+      const Expanded(
+        flex: 1,
+        child: StudentHeader(headerText: AllTexts.rolledStudents,),
+      ),
+      //contain list of students and bloc builder
+      Expanded(
+        flex: 7,
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width * 0.95,
+          child: StudentsList(courseName: courseName),
+        ),
+      ),
+      //contain elevated button
+      Expanded(
+        flex: 1,
+        child: Container(
+          decoration: const BoxDecoration(color: Colors.transparent),
+        ),
+      )
+    ]),
+  );
+}

@@ -1,5 +1,4 @@
 import 'package:e_sheet/core/general_use/constant.dart';
-import 'package:e_sheet/features/students/presentation/widgets/modify_student_dialog/attend_number_modifier.dart';
 import 'package:e_sheet/features/students/presentation/widgets/modify_student_dialog/modify_dialog_button.dart';
 import 'package:e_sheet/features/students/presentation/widgets/modify_student_dialog/modify_dialog_ignore_button.dart';
 import 'package:e_sheet/features/students/presentation/widgets/modify_student_dialog/modify_dialog_text_filed.dart';
@@ -30,21 +29,9 @@ modifyStudentDialog(BuildContext context, String studentName,
                       const SizedBox(
                         height: 10,
                       ),
-                      AutoSizeText('Student ID:$studentNationalId'),
+                      AutoSizeText('Student Number:$studentNationalId',maxLines: 1,),
                       const SizedBox(
                         height: 10,
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width,
-                        child: AutoSizeText(
-                          AllTexts.changeAttendance,
-                          maxLines: 1,
-                          style: TextStyle(
-                            fontSize: 11,
-                            //fontStyle: FontStyle.italic,
-                            color: Colors.grey.shade600,
-                          ),
-                        ),
                       ),
                       const SizedBox(
                         height: 10,
@@ -53,7 +40,6 @@ modifyStudentDialog(BuildContext context, String studentName,
                   ),
                 ),
               ),
-              AttendNumberModifier(studentAtendNum: studentAtendNum),
             ],
           ),
           actions: [

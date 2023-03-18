@@ -1,4 +1,3 @@
-import 'dart:ffi';
 import 'package:e_sheet/core/general_use/constant.dart';
 import 'package:e_sheet/core/general_use/general_widget.dart';
 import 'package:e_sheet/core/injection/injection_modeling.dart';
@@ -70,7 +69,6 @@ List<Map<String, dynamic>> saveStudentDataInMap(Excel excel) {
     print('number of columns:${excel.tables[table]?.maxCols}');
     print('number of Rows :${excel.tables[table]?.maxRows}');
     for (var row in excel.tables[table]!.rows) {
-      print("${row.first?.value} -> ${row.last?.value} \n");
       allStudents.add(
           {'name': row.first?.value.toString(), 'studentNum': row.last?.value});
     }
@@ -82,15 +80,13 @@ fillDataInTheNewCourse(List<Map<String, dynamic>> allStudents,
     BuildContext context, String courseName) {
   for (var element in allStudents) {
     //todo add cheak if id exist
-
-    if (element['studentNum'] is int) {
-      print('worked2?');
+    print(element);
       var student = Student(
-          name: element['name'],
-          nationalId: element['studentNum'],
+          name: element['name'].toString(),
+          nationalId: int.parse(element['studentNum'].toString()),
           atendNumber: 0);
       getIt<StudentsCubit>().addStudent(student, courseName);
-    }
+
   }
 }
 

@@ -16,3 +16,8 @@ class ConnectionStates with _$ConnectionStates {
 
 }
 
+@freezed
+class StudentDateStates with _$StudentDateStates {
+  const factory StudentDateStates.studentDateInitialState()= StudentDateInitialState;
+  const factory StudentDateStates.reloadedStudentsDate(List<Map<String,dynamic>> studentsDate)= ReloadedStudentsDate;
+}

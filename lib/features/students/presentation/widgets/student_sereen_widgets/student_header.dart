@@ -4,7 +4,9 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 class StudentHeader extends StatefulWidget {
-  const StudentHeader({super.key});
+  final String headerText;
+
+  const StudentHeader({super.key, required this.headerText});
 
   @override
   State<StudentHeader> createState() => _StudentHeaderState();
@@ -25,14 +27,13 @@ class _StudentHeaderState extends State<StudentHeader> {
   }
 
   Center headerText() {
-    return const Center(
+    return Center(
       child: AutoSizeText(
-        AllTexts.rolledStudents,
+        widget.headerText,
         maxLines: 1,
-        style: TextStyle(
+        style: const TextStyle(
             fontFamily: 'RubikDistressed', color: Colors.blue, fontSize: 30),
       ),
     );
   }
-
 }

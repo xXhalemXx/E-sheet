@@ -31,7 +31,7 @@ class NewSearchDelegate extends SearchDelegate {
     return BlocProvider.value(
       value: getIt<StudentsCubit>(),
       child:
-      BlocBuilder<StudentsCubit, StudentStates>(builder: (context, state) {
+          BlocBuilder<StudentsCubit, StudentStates>(builder: (context, state) {
         return state.when(studentInitialState: () {
           return const Center(
             child: CircularProgressIndicator(),
@@ -51,22 +51,25 @@ class NewSearchDelegate extends SearchDelegate {
 
           return suggestions.isNotEmpty
               ? ListView.builder(
-              itemCount: suggestions.length,
-              itemBuilder: (_, index) {
-                return Padding(
-                  padding:
-                  const EdgeInsets.only(top: 5, right: 10, left: 10),
-                  child: StudentListTail(
-                    studentName: suggestions[index]['name'],
-                    studentAtendNum: suggestions[index]['atendNumber'],
-                    studentNationalId: suggestions[index]['nationalId'],
-                    courseName: courseName,
+                  itemCount: suggestions.length,
+                  itemBuilder: (_, index) {
+                    return Padding(
+                      padding:
+                          const EdgeInsets.only(top: 5, right: 10, left: 10),
+                      child: StudentListTail(
+                        studentName: suggestions[index]['name'],
+                        studentAtendNum: suggestions[index]['atendNumber'],
+                        studentNationalId: suggestions[index]['nationalId'],
+                        courseName: courseName,
+                      ),
+                    );
+                  })
+              : const Center(
+                  child: Text(
+                    AllTexts.noStudentsToShow,
+                    style: TextStyle(fontSize: 20, color: Colors.blueGrey),
                   ),
                 );
-              })
-              : const Center(
-            child: Text(AllTexts.noStudentsToShow,style: TextStyle(fontSize: 20,color: Colors.blueGrey),),
-          );
         });
       }),
     );
@@ -111,7 +114,10 @@ class NewSearchDelegate extends SearchDelegate {
                     );
                   })
               : const Center(
-                  child: Text(AllTexts.noStudentsToShow,style: TextStyle(fontSize: 20,color: Colors.blueGrey),),
+                  child: Text(
+                    AllTexts.noStudentsToShow,
+                    style: TextStyle(fontSize: 20, color: Colors.blueGrey),
+                  ),
                 );
         });
       }),

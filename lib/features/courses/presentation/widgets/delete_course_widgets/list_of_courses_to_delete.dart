@@ -80,7 +80,7 @@ class _ListOfCoursesWithButtonState extends State<ListOfCoursesWithButton> {
 
               ),
               Text(
-                removeUnderscore(value),
+               cutStringToFit( removeUnderscore(value)),
                 style: const TextStyle(color: Colors.black),
               ),
             ],
@@ -99,6 +99,16 @@ class _ListOfCoursesWithButtonState extends State<ListOfCoursesWithButton> {
       }
     }
     return tempString;
+  }
+  String cutStringToFit(String value) {
+    if(value.length>=25)
+      {
+        return '${value.substring(0,23)}...';
+      }
+    else{
+      return value;
+    }
+
   }
 
 }

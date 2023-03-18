@@ -5,6 +5,7 @@ import 'package:e_sheet/features/courses/presentation/widgets/home_page_widgets/
 import 'package:e_sheet/features/courses/presentation/widgets/home_page_widgets/no_courses_to_show.dart';
 import 'package:e_sheet/features/students/presentation/manager/student_cubit.dart';
 import 'package:e_sheet/features/students/presentation/pages/StudentsScreen.dart';
+import 'package:e_sheet/features/wifi_connection/presentation/manager/connection_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -40,6 +41,7 @@ class BuildCoursesList extends StatelessWidget{
                 builder: (_) => MultiBlocProvider(
                   providers: [
                     BlocProvider<StudentsCubit>(create: (_) => getIt<StudentsCubit>()),
+                    BlocProvider<StudentsDateCubit>(create: (_) => getIt<StudentsDateCubit>()),
                   ],
                   child: StudentScreen(courseName: courses[index]),
                 ),
