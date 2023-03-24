@@ -10,8 +10,9 @@ import 'package:flutter/material.dart';
 class StudentScreen extends StatefulWidget {
   final String courseName;
   bool showWhenSlid = true;
+  final PageController controller = PageController();
 
-  StudentScreen({required this.courseName, Key? key}) : super(key: key);
+   StudentScreen({required this.courseName, Key? key}) : super(key: key);
 
   @override
   State<StudentScreen> createState() => StudentScreenStates();
@@ -45,17 +46,21 @@ class StudentScreenStates extends State<StudentScreen> {
   }
 
   bool backButtonPressed() {
-    getIt.resetLazySingleton<StudentsCubit>();
-    getIt.resetLazySingleton<StudentsDateCubit>();
-    return true;
+    if(widget.showWhenSlid) {
+      getIt.resetLazySingleton<StudentsCubit>();
+      getIt.resetLazySingleton<StudentsDateCubit>();
+      return true;
+    }else{
+      widget.controller.animateToPage(0, duration: const Duration(microseconds: 1), curve:Curves.linear );
+      return false;
+    }
   }
 
   Widget scrollWidget() {
-    final PageController controller = PageController();
     return PageView(
       onPageChanged: whenSlide,
       scrollDirection: Axis.horizontal,
-      controller: controller,
+      controller: widget.controller,
       children: <Widget>[allStudentsNoDate(context,widget.courseName), allStudentsWithDate(context,widget.courseName)],
     );
   }
