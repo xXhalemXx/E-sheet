@@ -56,10 +56,9 @@ class SaveData extends StatelessWidget {
   }
 
   yesPressed(String courseName, BuildContext context) {
-    int currentDate =DateTime.now().millisecondsSinceEpoch;
-    print(DateTime.now().millisecondsSinceEpoch);
-    final DateTime date2 = DateTime.fromMillisecondsSinceEpoch(currentDate);
-    print(date2);
+    final DateTime dateAndTime = DateTime.now();
+    final DateTime dateOnly =DateTime(dateAndTime.year,dateAndTime.month,dateAndTime.day);
+    final int dateAsInt=dateOnly.millisecondsSinceEpoch;
     for (var student in attendedStudents) {
       Student tempStudent = Student(
           name: student['name'],
@@ -70,7 +69,7 @@ class SaveData extends StatelessWidget {
 
     for(var student in attendedStudents)
       {
-        StudentDate tempStudent=StudentDate(date: currentDate, nationalId: student['nationalId']);
+        StudentDate tempStudent=StudentDate(date: dateAsInt, nationalId: student['nationalId']);
         getIt<StudentsDateCubit>().addStudent(tempStudent, '${courseName}WithDate');
 
       }

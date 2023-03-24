@@ -25,11 +25,11 @@ class ExportScreen extends StatelessWidget {
                   const SizedBox(
                     height: 35,
                   ),
-                   ListOfCourses(),
+                   const ListOfCourses(),
                   const SizedBox(
                     height: 10,
                   ),
-                   ExportButton(),
+                   const ExportButton(),
 
                 ],
               ),

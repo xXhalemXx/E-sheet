@@ -1,7 +1,7 @@
 import 'package:e_sheet/features/settings/presentation/pages/about_screen.dart';
 import 'package:e_sheet/features/settings/presentation/pages/edit_name_screen.dart';
 import 'package:e_sheet/features/settings/presentation/pages/export_screen.dart';
-import 'package:e_sheet/features/settings/presentation/pages/import_screen.dart';
+import 'package:e_sheet/features/settings/presentation/pages/import_screens/import_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

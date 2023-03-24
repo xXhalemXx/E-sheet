@@ -2,9 +2,11 @@ import 'package:e_sheet/core/general_use/constant.dart';
 import 'package:e_sheet/core/general_use/general_widget.dart';
 import 'package:e_sheet/core/injection/injection_modeling.dart';
 import 'package:e_sheet/features/courses/presentation/manager/courses_cubit.dart';
+import 'package:e_sheet/features/settings/presentation/pages/import_screens/modify_selected_exel.dart';
 import 'package:e_sheet/features/students/domain/entities/student_entities.dart';
 import 'package:e_sheet/features/students/presentation/manager/student_cubit.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'dart:io';
 import 'package:file_picker/file_picker.dart';
@@ -13,42 +15,47 @@ import 'package:excel/excel.dart';
 
 readExelFile(BuildContext context, [bool mounted = true]) async {
   List<Map<String, dynamic>> allStudents = [];
-  FilePickerResult? result = await FilePicker.platform.pickFiles();
+  FilePickerResult? result = await FilePicker.platform
+      .pickFiles(type: FileType.custom, allowedExtensions: ['xlsx']);
   String filePath = await getFilePath(result);
-  String fileName = await getFileName(result);
-  String courseName = '';
-  if (filePath != '') {
-    if (await checkStoragePermission()) {
-      var bytes = File(filePath).readAsBytesSync();
-      Excel excel = Excel.decodeBytes(bytes);
-      allStudents = saveStudentDataInMap(excel);
-      courseName = saveCourseToDatabase(fileName);
-      if (!mounted) return;
-      fillDataInTheNewCourse(allStudents, context, courseName);
+  try {
+    if (filePath != '') {
+      if (await checkStoragePermission()) {
+        var bytes = File(filePath).readAsBytesSync();
+        Excel excel = Excel.decodeBytes(bytes);
+        allStudents = saveStudentDataInMap(excel);
+        if (!mounted) return;
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (_)=> ModifySelectedFile(allStudents: allStudents,)));
+      } else {
+        Permission.storage.request();
+      }
     } else {
-      Permission.storage.request();
+      if (!mounted) return;
+      generalToast(context, 'No file selected', AllColors.failedToastColor);
     }
-  } else {
+  } catch (e) {
     if (!mounted) return;
-    generalToast(context, 'No file selected', AllColors.failedToastColor);
+    generalToast(context, e.toString(), AllColors.failedToastColor);
   }
 }
+//  String fileName = await getFileName(result);
+//  String courseName = '';
+//courseName = saveCourseToDatabase(fileName);
+// fillDataInTheNewCourse(allStudents, context, courseName);
 
 String saveCourseToDatabase(String fileName) {
-  if(!checkIfCourseExist(replaceWhiteSpaceByUnderscore(fileName))) {
-
+  if (!checkIfCourseExist(replaceWhiteSpaceByUnderscore(fileName))) {
     getIt<CoursesCubit>().addNewCourse(replaceWhiteSpaceByUnderscore(fileName));
-  return fileName;
-  }
-  else{
+    return fileName;
+  } else {
     return '';
   }
 }
 
 Future<String> getFileName(FilePickerResult? result) async {
-
   if (result != null) {
-    return replaceWhiteSpaceByUnderscore(removeExtinction(result.files.single.name));
+    return replaceWhiteSpaceByUnderscore(
+        removeExtinction(result.files.single.name));
   } else {
     return '';
   }
@@ -69,8 +76,8 @@ List<Map<String, dynamic>> saveStudentDataInMap(Excel excel) {
     print('number of columns:${excel.tables[table]?.maxCols}');
     print('number of Rows :${excel.tables[table]?.maxRows}');
     for (var row in excel.tables[table]!.rows) {
-      allStudents.add(
-          {'name': row.first?.value.toString(), 'studentNum': row.last?.value});
+      allStudents
+          .add({'name': row.first?.value, 'studentNum': row.last?.value});
     }
   }
   return allStudents;
@@ -81,12 +88,11 @@ fillDataInTheNewCourse(List<Map<String, dynamic>> allStudents,
   for (var element in allStudents) {
     //todo add cheak if id exist
     print(element);
-      var student = Student(
-          name: element['name'].toString(),
-          nationalId: int.parse(element['studentNum'].toString()),
-          atendNumber: 0);
-      getIt<StudentsCubit>().addStudent(student, courseName);
-
+    var student = Student(
+        name: element['name'].toString(),
+        nationalId: int.parse(element['studentNum'].toString()),
+        atendNumber: 0);
+    getIt<StudentsCubit>().addStudent(student, courseName);
   }
 }
 
@@ -118,14 +124,14 @@ bool checkIfCourseExist(String courseName) {
 }
 
 //
-String removeExtinction(String courseName){
+String removeExtinction(String courseName) {
   courseName = courseName.trim();
   List tempCourse = courseName.split('');
   courseName = '';
   for (var x in tempCourse) {
-    if (x =='.') {
+    if (x == '.') {
       break;
-    }else{
+    } else {
       courseName += x;
     }
   }

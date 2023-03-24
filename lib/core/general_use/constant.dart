@@ -1,5 +1,5 @@
 
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class AllTexts{
   static const String courseAddedSuccessfully='Course added successfully';

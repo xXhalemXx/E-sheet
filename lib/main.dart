@@ -55,22 +55,6 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
-  /*Widget mainWidget() {
-
-             return MultiBlocProvider(
-                  providers: [
-                    BlocProvider<CoursesCubit>(
-                        create: (_) => getIt<CoursesCubit>()),
-                    BlocProvider<StudentsCubit>(
-                        create: (_) => getIt<StudentsCubit>()),
-                  ],
-                  child: MainPage(
-                    prefs: prefs,
-                  ),
-                );
-
-  }*/
-
   Widget mainWidget() {
     return FutureBuilder(
       future: assignFile(),
@@ -79,21 +63,21 @@ class _MyAppState extends State<MyApp> {
           FlutterNativeSplash.remove();
           return checkIfNull()
               ? WelcomeScreen(
-                  prefs: prefs,
-                )
+            prefs: prefs,
+          )
               : MultiBlocProvider(
-                  providers: [
-                    BlocProvider<CoursesCubit>(
-                        create: (_) => getIt<CoursesCubit>()),
-                    BlocProvider<StudentsCubit>(
-                        create: (_) => getIt<StudentsCubit>()),
-                    BlocProvider<StudentsDateCubit>(
-                        create: (_) => getIt<StudentsDateCubit>()),
-                  ],
-                  child: MainPage(
-                    prefs: prefs,
-                  ),
-                );
+            providers: [
+              BlocProvider<CoursesCubit>(
+                  create: (_) => getIt<CoursesCubit>()),
+              BlocProvider<StudentsCubit>(
+                  create: (_) => getIt<StudentsCubit>()),
+              BlocProvider<StudentsDateCubit>(
+                  create: (_) => getIt<StudentsDateCubit>()),
+            ],
+            child: MainPage(
+              prefs: prefs,
+            ),
+          );
         } else {
           return const SizedBox();
         }
