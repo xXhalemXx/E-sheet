@@ -12,6 +12,8 @@ class StudentScreen extends StatefulWidget {
   bool showWhenSlid = true;
   final PageController controller = PageController();
 
+
+
    StudentScreen({required this.courseName, Key? key}) : super(key: key);
 
   @override
