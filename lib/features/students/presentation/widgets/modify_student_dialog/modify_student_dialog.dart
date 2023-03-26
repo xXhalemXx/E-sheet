@@ -6,7 +6,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 modifyStudentDialog(BuildContext context, String studentName,
-    int studentAtendNum, String courseName, int studentNationalId) {
+    int studentAttendNum, String courseName, int studentNationalId) {
   var formKey = GlobalKey<FormState>();
   showDialog(
       barrierDismissible: false,
@@ -48,7 +48,7 @@ modifyStudentDialog(BuildContext context, String studentName,
               studentName: studentName,
               courseName: courseName,
               studentNationalId: studentNationalId,
-              formKey: formKey,
+              formKey: formKey, newStudentAttendNumber: studentAttendNum,
             ),
           ],
         );

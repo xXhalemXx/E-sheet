@@ -9,6 +9,7 @@ class ModifyDialogButton extends StatelessWidget {
   final String studentName;
   final int studentNationalId;
   final String courseName;
+  final int newStudentAttendNumber;
   final GlobalKey<FormState> formKey;
 
   const ModifyDialogButton(
@@ -16,6 +17,7 @@ class ModifyDialogButton extends StatelessWidget {
       required this.studentName,
       required this.courseName,
       required this.studentNationalId,
+      required this.newStudentAttendNumber,
       required this.formKey});
 
   @override
@@ -25,7 +27,7 @@ class ModifyDialogButton extends StatelessWidget {
         updateStudentDataPressed(context);
       },
       child: const Text(
-       AllTexts.update ,
+        AllTexts.update,
         style: TextStyle(
           color: Colors.blue,
         ),
@@ -35,17 +37,16 @@ class ModifyDialogButton extends StatelessWidget {
 
   updateStudentDataPressed(BuildContext context) {
     if (formKey.currentState!.validate()) {
-
       Student tempStudent = Student(
           name: GlobalVariables.newStudentName.text,
           nationalId: studentNationalId,
-          atendNumber: GlobalVariables.newStudentAttendNumber);
+          atendNumber: newStudentAttendNumber);
 
       getIt<StudentsCubit>().updateStudent(tempStudent, courseName);
 
       Navigator.pop(context);
 
-      GlobalVariables.newStudentName.text='';
+      GlobalVariables.newStudentName.text = '';
     }
   }
 }

@@ -16,32 +16,17 @@ class ModifyTextFiled extends StatelessWidget{
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(25)),
       ),
       validator: (value) {
-        if (value == '' || value == null) {
-          GlobalVariables.newStudentName.text = studentName;
-          return null;
+        final validCharacters = RegExp(r"^[\u0621-\u064A a-zA-z]+$");
+        if (value == null || value.isEmpty||value=='') {
+          return 'You need to fill this field 😒';
         }
-        if (value.contains('.') ||
-            value.contains('/') ||
-            value.contains('\\') ||
-            value.contains('}') ||
-            value.contains('{') ||
-            value.contains('@') ||
-            value.contains('#') ||
-            value.contains('!') ||
-            value.contains('\$') ||
-            value.contains('%') ||
-            value.contains('^') ||
-            value.contains('&') ||
-            value.contains('*') ||
-            value.contains('(') ||
-            value.contains(')') ||
-            value.contains('_') ||
-            value.contains('+')) {
-          return AllTexts.noSpecialCharacters;
+        else if (!validCharacters.hasMatch(value)) {
+          return 'you can use alphabet only';
         }
-
         return null;
-      },
+
+
+      }
     );
   }
 

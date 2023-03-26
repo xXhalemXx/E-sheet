@@ -31,7 +31,7 @@ class CourseNameFiled extends StatelessWidget{
       return 'You need to fill this field 😒';
     }
     else if (!validCharacters.hasMatch(value)) {
-      return 'you cant use alphabet only';
+      return 'you can use alphabet only';
     }
     return null;
 

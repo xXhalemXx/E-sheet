@@ -44,33 +44,16 @@ final TextEditingController doctorName;
           hintStyle: const TextStyle(color: Colors.white60),
         ),
       );
-
 String? nameValidate(String? value) {
+  final validCharacters = RegExp(r"^[\u0621-\u064A a-zA-z]+$");
   if (value == null || value.isEmpty||value=='') {
-
     return 'You need to fill this field 😒';
   }
-  else if (value.contains('.') ||
-      value.contains('/') ||
-      value.contains('\\')||
-      value.contains('}') ||
-      value.contains('{') ||
-      value.contains('@') ||
-      value.contains('#') ||
-      value.contains('!') ||
-      value.contains('\$')||
-      value.contains('%') ||
-      value.contains('^') ||
-      value.contains('&') ||
-      value.contains('*') ||
-      value.contains('(') ||
-      value.contains(')')||
-      value.contains('_') ||
-      value.contains(',') ||
-      value.contains('?') ||
-      value.contains('+')) {
-    return 'you cant use any special character\nlike # % ^ { } ( ) @ ! .';
+  else if (!validCharacters.hasMatch(value)) {
+    return 'you can use alphabet only';
   }
-    return null;
+  return null;
+
+
 }
 }
