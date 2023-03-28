@@ -9,6 +9,7 @@ class AllTexts{
   static const String selectFirst='Select course first';
   static const String courseDeletedSuccessfully='Course deleted successfully';
   static const String addToCourses='Add to courses';
+  static const String addToCoursesAndFill='Add and fill data';
   static const String enterCourseName='Enter course name';
   static const String warning= 'Warning';
   static const String deleteConfirmation='You really want to delete';
@@ -76,6 +77,11 @@ class AllColors{
   static const Color lastColorExport=   Color(0xffffffff);
   static const Color darkColorExport=   Color(0xff0c7920);
   static const Color noPermissionColor =Color(0xffbd302a);
+
+  static const Color firstColorImport =Color(0xff68c5d9);
+  static const Color secColorImport =Color(0xff68b1d9);
+  static const Color lastColorImport =Color(0xff358fd9);
+
 
 
 }

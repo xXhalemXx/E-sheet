@@ -20,7 +20,7 @@ class DeleteCourseDialog extends StatelessWidget{
             color: AllColors.warningColor, fontSize: 25),
       ),
       content: Text(
-        '${AllTexts.deleteConfirmation}\n$dropDownValue',
+        '${AllTexts.deleteConfirmation}\n"${removeUnderscore(dropDownValue!)}"',
         style: const TextStyle(fontSize: 17),
         textAlign: TextAlign.center,
       ),
