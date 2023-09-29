@@ -38,9 +38,9 @@ E sheet is an app that makes taking attendance of students easy and convenient. 
 **now you can press to start connection**<br />
 ![](projectImges/image15.jpeg)<br />
 **select  course you want to take attendance**<br />
-![](projectImges/image15.jpeg)<br />
+![](projectImges/image16.jpeg)<br />
 **now  wait untile all student take attendance using** [student marker](https://github.com/xXhalemXx/student_marker)<br />
-![](projectImges/image15.jpeg)<br />
+![](projectImges/image17.jpeg)<br />
 **after  finishing close this page**<br />
 ![](projectImges/image18.jpeg)<br />
 **now we done take attendance and saved in our database if we need to**<br />
