@@ -5,50 +5,50 @@ E sheet is an app that makes taking attendance of students easy and convenient. 
 - I have learned clean architecture and how to separate component of the project and other skills like responsive screen , local database management, accessing phone storage and providing required permissions .
 ## Usage
 **in first open of application it will show like this**<br />
-![](projectImges/image12.jpeg)<br />
-**this page show in first time only and have validator on text field like this:<br />**
-![](projectImges/image13.jpeg)<br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image12.jpeg"  width="300" height="500"> <br />
+**this page show in first time only and have validator on text field <br />**
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image13.jpeg"  width="300" height="500"> <br />
 **after adding your name will navigate to this page that contain all courses in your database<br />**
-![](projectImges/image28.jpg)<br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image28.jpg"  width="300" height="500"> <br />
 **now we need to add some courses to our database we will go to settings page<br />**
-![](projectImges/image36.jpg)<br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image36.jpg"  width="300" height="500"> <br />
 **and chose import to open this page<br />**
-![](projectImges/image38.jpg)<br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image38.jpg"  width="300" height="500"> <br />
 **we need to select excel file from our storage<br />**
-![](projectImges/image2.jpg)<br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image2.jpg"  width="300" height="500"> <br />
 **view content of excel file<br />**
-![](projectImges/image3.jpg)<br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image3.jpg"  width="300" height="500"> <br />
 **add name to this course<br />**
-![](projectImges/image1.jpg)<br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image1.jpg"  width="300" height="500"> <br />
 **back to main screen you will find added course<br />**
-![](projectImges/image30.jpg)<br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image30.jpg"  width="300" height="500"> <br />
 **now you can show students in this course and attendance times**<br />
-![](projectImges/image21.jpeg)<br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image21.jpeg"  width="300" height="500"> <br />
 **you can use search to find any student using name** (**search show all names contain this string**)<br />
-![](projectImges/image25jpeg)<br />
-![](projectImges/image27.jpeg)<br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image25jpg"  width="300" height="500"> <br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image27.jpg"  width="300" height="500"> <br />
 **you can preform CURD functions like**<br />
-![](projectImges/image22.jpeg)<br />
-![](projectImges/image23.jpeg)<br />
-![](projectImges/image24.jpeg)<br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image22.jpeg"  width="300" height="500"> <br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image23.jpeg"  width="300" height="500"> <br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image24.jpeg"  width="300" height="500"> <br />
 **now most important part how to take attendance you need to open connection screen**<br />
-![](projectImges/image14.jpeg)<br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image14.jpeg"  width="300" height="500"> <br />
 **in first time the button will show red which mean you need to grant some permissions**<br />
-![](projectImges/image19.jpeg)<br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image19.jpeg"  width="300" height="500"> <br />
 **now you can press to start connection**<br />
-![](projectImges/image15.jpeg)<br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image15.jpeg"  width="300" height="500"> <br />
 **select  course you want to take attendance**<br />
-![](projectImges/image16.jpeg)<br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image16.jpeg"  width="300" height="500"> <br />
 **now  wait untile all student take attendance using** [student marker](https://github.com/xXhalemXx/student_marker)<br />
-![](projectImges/image17.jpeg)<br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image17.jpeg"  width="300" height="500"> <br />
 **after  finishing close this page**<br />
-![](projectImges/image18.jpeg)<br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image18.jpeg"  width="300" height="500"> <br />
 **now we done take attendance and saved in our database if we need to**<br />
 **export this data we go to settings and  chose export this time**<br />
-![](projectImges/image43.jpg)<br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image43.jpg"  width="300" height="500"> <br />
 **select  course you want to export it and it will show location that you can find**<br /> 
 **excel file that contain all students and attendance times and when they attended**<br />
-![](projectImges/image45.jpg)<br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image45.jpg"  width="300" height="500"> <br />
 
 ## Credits
 
