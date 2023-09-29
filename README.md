@@ -11,7 +11,7 @@ E-sheet is an app designed to simplify the process of taking attendance for stud
 
 ## Introduction
 
-E-sheet addresses the challenge of taking attendance without access to a database. It offers a novel method to input data without relying on a database and establishes efficient device-to-device communication. During the development of this app, I acquired skills in clean architecture, component separation, responsive screen design, local database management, accessing phone storage, and handling required permissions.
+E-sheet addresses the challenge of taking attendance without access to faculty database. It offers a novel method to input data without relying on a database and establishes efficient device-to-device communication. During the development of this app, I acquired skills in clean architecture, component separation, responsive screen design, local database management, accessing phone storage, and handling required permissions.
 
   
 ## Usage
