@@ -91,5 +91,65 @@ E sheet is an app that makes taking attendance of students easy and convenient. 
 </p>
 
 ## Credits
+one of most important helpers third-party packages i will list them in next table 
+| Dependency               | Version    | Description                                |
+|--------------------------|------------|--------------------------------------------|
+| flutter_svg              | ^1.1.5     | SVG rendering support for Flutter.         |
+| flutter_bloc             | ^8.1.1     | State management library using the BLoC pattern for Flutter. |
+| permission_handler       | ^10.2.0    | Handles runtime permissions in Flutter.    |
+| bloc                     | ^8.1.0     | State management library for Dart and Flutter applications. |
+| sqflite                  | ^2.1.0     | SQLite plugin for Flutter applications.    |
+| path                     | any        | Provides a way to work with file system paths. |
+| auto_size_text           | ^3.0.0     | A Flutter widget that automatically resizes text to fit perfectly within its bounds. |
+| nearby_connections       | ^3.2.0     | Flutter plugin for peer-to-peer communication over Wi-Fi Direct and Bluetooth. |
+| cupertino_icons          | ^1.0.5     | Icon set for Flutter based on Apple's Cupertino design language. |
+| build_runner             | ^2.2.1     | A build tool for Dart that generates code for JSON serialization and more. |
+| get_it                   | ^7.2.0     | A simple service locator for Dart and Flutter projects. |
+| freezed_annotation       | ^2.1.0     | Annotation package for the Freezed code generation library. |
+| freezed                  | 2.1.0+1   | A code generation library for immutability in Dart. |
+| flutter_styled_toast     | ^2.1.3     | A styled toast plugin for Flutter applications. |
+| shared_preferences       | ^2.0.15    | Flutter plugin for reading and writing key-value pairs to persistent storage. |
+| flutter_native_splash    | ^2.2.9     | A Flutter package to customize the native splash screen. |
+| device_preview           | ^1.1.0     | A Flutter plugin for previewing how your app looks on various devices. |
+| path_provider            | ^2.0.11    | Provides a platform-agnostic way to access commonly used locations on the file system. |
+| excel                    | ^2.0.1     | A Flutter plugin for reading and writing Excel files. |
+| file_picker              | ^5.2.5     | A file picker plugin for Flutter applications. |
+| url_launcher             | ^6.1.10    | A Flutter plugin for launching URLs and making phone calls. |
+
+
+ 
+ 
+## Usage
+
+To run this app, you need to have Flutter installed on your machine. You can follow the  [official documentation](https://www.freecodecamp.org/news/how-to-write-a-good-readme-file/)  to set up Flutter.
+
+To run the app on an emulator or a physical device, run the following command in the terminal:
+
+```bash
+flutter run
+
+```
+
+
+To build the app for production, run the following command in the terminal:
+
+```bash
+flutter build apk
+
+```
+
+
+## Contributing
+
+This project is open for contributions. If you want to contribute to this project, please follow these steps:
+
+-   Fork this repository
+-   Create a branch with your feature or bug fix name
+-   Commit and push your changes
+-   Create a pull request
+
+## Contact
+
+If you have any questions or feedback, please feel free to contact me at mohamedhalem909@gmail.com.
 
  
