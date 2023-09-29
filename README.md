@@ -1,7 +1,7 @@
 # E-sheet
 E sheet is an app that makes taking attendance of students easy and convenient. With e sheet, you can create and manage attendance records using your device’s hotspot. You can also share and export the records to other formats.
 - creating this app make taking attendance is very simple and fast way
-- one of most important problem that faculty not providing access to database so I created a new method to fill data whiteout using this database
+- one of most important problem that faculty not providing access to database so I created a new method to fill data whiteout using this database, and find best method to connect between devices.
 - I have learned clean architecture and how to separate component of the project and other skills like responsive screen , local database management, accessing phone storage and providing required permissions .
 ## Usage
 **in first open of application it will show like this**<br />
@@ -27,7 +27,7 @@ E sheet is an app that makes taking attendance of students easy and convenient. 
 **you can use search to find any student using name** (**search show all names contain this string**)<br />
 ![](projectImges/image25jpeg)<br />
 ![](projectImges/image27.jpeg)<br />
-**you can do CURD functions like**<br />
+**you can preform CURD functions like**<br />
 ![](projectImges/image22.jpeg)<br />
 ![](projectImges/image23.jpeg)<br />
 ![](projectImges/image24.jpeg)<br />
@@ -49,4 +49,7 @@ E sheet is an app that makes taking attendance of students easy and convenient. 
 **select  course you want to export it and it will show location that you can find**<br /> 
 **excel file that contain all students and attendance times and when they attended**<br />
 ![](projectImges/image45.jpg)<br />
+
+## Credits
+
  
