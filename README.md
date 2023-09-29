@@ -4,7 +4,7 @@ E sheet is an app that makes taking attendance of students easy and convenient. 
 - one of most important problem that faculty not providing access to database so I created a new method to fill data whiteout using this database
 - I have learned clean architecture and how to separate component of the project and other skills like responsive screen , local database management, accessing phone storage and providing required permissions .
 ## Usage
-**in first open of application it will show like this******<br />
+**in first open of application it will show like this**<br />
 ![](projectImges/image12.jpeg)<br />
 **this page show in first time only and have validator on text field like this:<br />**
 ![](projectImges/image13.jpeg)<br />
