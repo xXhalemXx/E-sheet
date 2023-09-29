@@ -102,6 +102,10 @@ E-sheet addresses the challenge of taking attendance without access to faculty d
 19. Choose the course you want to export, and you will find an Excel file with student data and attendance times.
 <p align="center">
 <img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image45.jpg"  width="300" height="500"> <br />
+
+20. result in excel file will be like.
+<p align="center">
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image0.png" > <br />
 </p>
 
 ## Credits
