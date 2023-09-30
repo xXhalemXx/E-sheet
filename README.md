@@ -19,94 +19,101 @@ E-sheet addresses the challenge of taking attendance without access to faculty d
 ### Initial Setup
 1. Upon the first launch, you will see the initial setup screen.
 <p align="center">
-<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image12.jpeg"  width="300" height="500">
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image12.jpeg"  width="300" height="600">
  
 2. This screen includes text field validation to ensure proper entry.
 <p align="center">
-<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image13.jpeg"  width="300" height="500"> <br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image13.jpeg"  width="300" height="600"> <br />
 
 3. After entering your name, you will navigate to a page containing all your courses.
 <p align="center">
-<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image28.jpg"  width="300" height="500"> <br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image28.jpg"  width="300" height="600"> <br />
  
 ### Adding Courses
 4. To add courses, go to the settings page.
 <p align="center">
-<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image36.jpg"  width="300" height="500"> <br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image36.jpg"  width="300" height="600"> <br />
  
 5. Select "Import" to open the import page.
 <p align="center">
-<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image38.jpg"  width="300" height="500"> <br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image38.jpg"  width="300" height="600"> <br />
 
  
 6. Choose an Excel file from your storage.
 <p align="center">
-<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image2.jpg"  width="300" height="500"> <br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image2.jpg"  width="300" height="600"> <br />
 
  
 7. View the content of the Excel file and add a name to the course.
 <p align="center">
-<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image3.jpg"  width="300" height="500"> <br />
-<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image1.jpg"  width="300" height="500"> <br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image3.jpg"  width="300" height="600"> 
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image1.jpg"  width="300" height="600"> <br />
  
 8. Back on the main screen, you will see the added course.
 <p align="center">
-<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image30.jpg"  width="300" height="500"> <br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image30.jpg"  width="300" height="600"> <br />
 
  ### Mange courses
 9. To mange courses press on course name in main secreen.
 <p align="center">
- <img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image21.jpeg"  width="300" height="500"> <br />
+ <img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image21.jpeg"  width="300" height="600"> <br />
  
 10. you can use search to find any student using name (search show all names contain this string)
 <p align="center">
-<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image25.jpeg"  width="300" height="500"> <br />
-<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image27.jpeg"  width="300" height="500"> <br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image25.jpeg"  width="300" height="600"> 
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image27.jpeg"  width="300" height="600"> <br />
  
 11. you can preform CURD functions like
 <p align="center">
-<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image22.jpeg"  width="300" height="500"> <br />
-<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image23.jpeg"  width="300" height="500"> <br />
-<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image24.jpeg"  width="300" height="500"> <br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image22.jpeg"  width="300" height="600"> 
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image23.jpeg"  width="300" height="600"> 
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image24.jpeg"  width="300" height="600"> <br />
+
+12. when you swap to right you will see lectures named by date each one contain names of students attended in this day.
+<p align="center">
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image50.jpg"  width="300" height="600"> 
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image51.jpg"  width="300" height="600"> <br />
+
 
  ### Taking Attendance
-12. To take attendance, open the connection screen
+13. To take attendance, open the connection screen
 <p align="center">
-<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image14.jpeg"  width="300" height="500"> <br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image14.jpeg"  width="300" height="600"> <br />
  
-13. Grant necessary permissions by pressing the red button (for the first time).
+14. Grant necessary permissions by pressing the red button (for the first time).
 <p align="center">
-<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image19.jpeg"  width="300" height="500"> <br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image19.jpeg"  width="300" height="600"> <br />
  
-14, Start the connection.
+15, Start the connection.
 <p align="center">
-<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image15.jpeg"  width="300" height="500"> <br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image15.jpeg"  width="300" height="600"> <br />
  
-15. Select the course for which you want to take attendance.
+16. Select the course for which you want to take attendance.
 <p align="center">
-<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image16.jpeg"  width="300" height="500"> <br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image16.jpeg"  width="300" height="600"> <br />
  
-16.Wait until all students have taken attendance using the [student marker](https://github.com/xXhalemXx/student_marker).
+17.Wait until all students have taken attendance using the [student marker](https://github.com/xXhalemXx/student_marker).
 <p align="center">
-<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image17.jpeg"  width="300" height="500"> <br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image17.jpeg"  width="300" height="600"> <br />
  
-17. Close the attendance-taking page.
+18. Close the attendance-taking page.
 <p align="center">
-<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image18.jpeg"  width="300" height="500"> <br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image18.jpeg"  width="300" height="600"> <br />
  
  ### Exporting Data
-18. To export data, go to settings and select "Export this time."
+19. To export data, go to settings and select "Export this time."
 <p align="center">
-<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image43.jpg"  width="300" height="500"> <br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image43.jpg"  width="300" height="600"> <br />
  
-19. Choose the course you want to export, and you will find an Excel file with student data and attendance times.
+20. Choose the course you want to export, and you will find an Excel file with student data and attendance times.
 <p align="center">
-<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image45.jpg"  width="300" height="500"> <br />
+<img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image45.jpg"  width="300" height="600"> <br />
 
-20. result in excel file will be like.
+21. result in excel file will be like.
 <p align="center">
 <img src="https://github.com/xXhalemXx/E-sheet/blob/main/projectImges/image0.png" > <br />
 </p>
+
 
 ## Credits
 one of most important helpers third-party packages i will list them in next table 
